@@ -1,0 +1,11 @@
+never verifyp {    /* !([] ((! ((usingCoreOut==1))) || (<> ((usingRand==1))))) */
+T0_init:
+	do
+	:: (! ((! ((usingCoreOut==1)))) && ! (((usingRand==1)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((usingRand==1)))) -> goto accept_S4
+	od;
+}

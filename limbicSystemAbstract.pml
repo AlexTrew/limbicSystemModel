@@ -107,19 +107,25 @@ fi
 inline randomExplore() //randomly explore the grid
 {
 if
-::vision=seeNothing
-::vision=seeBoth
-::vision=seeLG
-::vision=seeDG
+::(agentPos!=0 && agentPos!=6)->
+	::if
+	::vision=seeNothing
+	::vision=seeBoth
+	::vision=seeLG
+	::vision=seeDG
+	fi
+	if
+	::agentPos=agentPos-1;
+	::agentPos=agentPos+1;
+	::skip;
+	fi
+	reset();
+	usingCoreOut=0;
+	usingRand=1;
+	
+	limit()
+::else->skip
 fi
-if
-::agentPos=agentPos-1;
-::agentPos=agentPos+1;
-::skip;
-fi
-usingCoreOut=0;
-usingRand=1;
-limit()
 }
 
 
