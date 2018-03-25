@@ -197,7 +197,7 @@ inline weightChange(w,d)//change the weight of a given node. This weight determi
 	if
 	::(w>precision)->w=precision
 	::(w<0)->w=0
-	::else->skip;
+	::(w>=0 && w<=precision)
 	fi
 }
 
