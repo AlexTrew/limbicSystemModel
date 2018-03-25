@@ -107,25 +107,19 @@ fi
 inline randomExplore() //randomly explore the grid
 {
 if
-::(agentPos!=0 && agentPos!=6)->
-	::if
-	::vision=seeNothing
-	::vision=seeBoth
-	::vision=seeLG
-	::vision=seeDG
-	fi
-	if
-	::agentPos=agentPos-1;
-	::agentPos=agentPos+1;
-	::skip;
-	fi
-	reset();
-	usingCoreOut=0;
-	usingRand=1;
-	
-	limit()
-::else->skip
+::vision=seeNothing
+::vision=seeBoth
+::vision=seeLG
+::vision=seeDG
 fi
+if
+::agentPos=agentPos-1;
+::agentPos=agentPos+1;
+::skip;
+fi
+usingCoreOut=0;
+usingRand=1;
+limit()
 }
 
 
@@ -197,7 +191,7 @@ inline weightChange(w,d)//change the weight of a given node. This weight determi
 	if
 	::(w>precision)->w=precision
 	::(w<0)->w=0
-	::(w>=0 && w<=precision)
+	::(w>=0 && w<=precision)->skip
 	fi
 }
 
