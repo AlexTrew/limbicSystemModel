@@ -198,7 +198,7 @@ inline weightChange(w,d)//change the weight of a given node. This weight determi
 inline switchReward()//randomly swap location of reward and fake reward 
 {
 if
-::(step==10000)->
+::(step==60000)->
 	if
 	::(grid[0]==rewardObject)->grid[0]=noRewardObject;grid[6]=rewardObject;c=c+1;
 	::(grid[0]==noRewardObject)->grid[6]=noRewardObject;grid[0]=rewardObject;c=c+1;
